@@ -1,1 +1,1 @@
-web: node index 3000
+web: node index $PORT
