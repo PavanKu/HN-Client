@@ -5,22 +5,26 @@
 	<meta charset="UTF-8">
 	<title>Hacker News Client</title>
 	<link rel="stylesheet" href="/semantic/semantic.min.css">
+  <link rel="stylesheet" href="/app/app.css">
 </head>
 
 <body>
-	<div class="ui page grid">
-		<div class="one column row">
-			<div class="column">
-				<div class="ui segment">
-					<h3>Hacker News</h3>
-					<div class="ui divider"></div>
-					<div class="ui fluid cards" id="topStoriesList">
-						<!-- Story cards will be added via javascript -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="ui container">
+    <div class="ui basic segment">
+      <h3 class="ui center aligned orange icon header">
+        <i class="hacker news icon"></i>
+        Hacker News
+      </h3>
+    </div>
+    <div class="ui basic segment">
+      <h2 class="ui center aligned orange icon header" id="loader">
+        <i class="ui loading square outline icon"></i>
+      </h2>
+      <div class="ui three stackable cards" id="topStoriesList">
+        <!-- Story cards will be added via javascript -->
+      </div>
+    </div>
+  </div>
 	<script type="text/javascript" src="/jquery/jquery-2.1.4.js"></script>
 	<script type="text/javascript" src="/semantic/semantic.min.js"></script>
 	<script type="text/javascript" src="/app/app.js"></script>

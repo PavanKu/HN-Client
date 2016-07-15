@@ -30,6 +30,10 @@
 		fetchStoryCard: function (id) {
 			$.getJSON("/item?id=" + id)
 				.done(function (data) {
+          //Hide loader
+          if(!$('#loader').hasClass('hidden')){
+            $('#loader').addClass('hidden');
+          }
 					console.log(data);
 					util.addStoryCard(util.getMarkup(data));
 				})
@@ -42,15 +46,20 @@
 		},
 		getMarkup: function (story) {
 			var storyJSON = story,
-				cardMarkup = '<div class="ui card" "data-id={id}"><div class="image"><img src="{image}"></div><div class="content"><a class="header" href={url}>{title}</a><div class="meta"><span class="date">{time}</span></div><div class="description">{description}</div></div><div class="extra content"><img class="ui avatar image " src={domainImg}><a>{domain}</a><a class="right floated"><i class="heart icon"></i>{score}</a><a class="right floated"><i class="comment icon"></i>{comment}</a></div></div>';
-			storyJSON.time = new Date(storyJSON.time).toUTCString();
-			storyJSON.comment = storyJSON.kids ? storyJSON.kids.length : 0;
+				cardMarkup = '<div class="ui card" "data-id={id}"><div class="image"><img src="{image}"></div><div class="content"><a class="header" href={url} target="_blank">{title}</a><div class="meta"><span class="date">{time}</span></div><div class="description">{description}</div></div><div class="extra content"><a href=http://{domain} target="_blank"><img class="ui avatar image " src={domainImg}>{domain}</a><a class="right floated"><i class="red heart disabled icon"></i>{score}</a><a class="right floated"><i class="comment orange disabled icon"></i>{comment}</a></div></div>';
+        storyJSON.image = storyJSON.image|| 'app/placeholder.png';
+			storyJSON.time = storyJSON.time? new Date(storyJSON.time*1000).toDateString():0;
+			storyJSON.comment = storyJSON.descendants;
 			storyJSON.domainImg = util.getFaviconUrl(storyJSON.url);
 			storyJSON.domain = util.getDomain(storyJSON.url);
+      storyJSON.description = storyJSON.description|| '';
+      if(storyJSON.description.length>321){
+        storyJSON.description.substr(0,321)+'...';
+      }
 
 			Object.keys(storyJSON).map(function (key) {
-				var regx = new RegExp("{" + key + "}");
-				cardMarkup = cardMarkup.replace(regx, storyJSON[key]);
+				var regx = new RegExp("{" + key + "}", 'g');
+        cardMarkup = cardMarkup.replace(regx, storyJSON[key]);
 				return;
 			});
 

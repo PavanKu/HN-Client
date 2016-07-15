@@ -38,7 +38,7 @@ app.get("/item", function (req, res) {
 			return;
 		}
 		var storyJSON = JSON.parse(body);
-		console.log(storyJSON.url)
+		// console.log(storyJSON.url)
 //		res.json(storyJSON);
 		request({
 			uri: storyJSON.url
