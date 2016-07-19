@@ -3,26 +3,34 @@
 
 <head>
 	<meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0,width=device-width" />
+  <meta property="og:title" content="Hacker News Client" />
+  <meta property="og:description" content="Hacker News Client with rich previews" />
+  <meta property="og:image" content="///richhn.herokuapp.com/metaTagImage.png" />
 	<title>Hacker News Client</title>
-	<link rel="stylesheet" href="/semantic/semantic.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+  <link rel="stylesheet" href="/app/app.css">
 </head>
 
 <body>
-	<div class="ui page grid">
-		<div class="one column row">
-			<div class="column">
-				<div class="ui segment">
-					<h3>Hacker News</h3>
-					<div class="ui divider"></div>
-					<div class="ui fluid cards" id="topStoriesList">
-						<!-- Story cards will be added via javascript -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript" src="/jquery/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="/semantic/semantic.min.js"></script>
+  <div class="ui container">
+    <div class="ui basic segment">
+      <h3 class="ui center aligned orange icon header">
+        <i class="hacker news icon"></i>
+        Hacker News
+      </h3>
+    </div>
+    <div class="ui basic segment">
+      <h2 class="ui center aligned orange icon header" id="loader">
+        <i class="ui loading square outline icon"></i>
+      </h2>
+      <div class="ui three stackable cards" id="topStoriesList">
+        <!-- Story cards will be added via javascript -->
+      </div>
+    </div>
+  </div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></script>
 	<script type="text/javascript" src="/app/app.js"></script>
 </body>
 
