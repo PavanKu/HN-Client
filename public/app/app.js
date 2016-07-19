@@ -46,7 +46,7 @@
 		},
 		getMarkup: function (story) {
 			var storyJSON = story,
-				cardMarkup = '<div class="ui card" "data-id={id}"><div class="image"><img src="{image}"></div><div class="content"><a class="header" href={url} target="_blank">{title}</a><div class="meta"><span class="date">{time}</span></div><div class="description">{description}</div></div><div class="extra content"><a href=http://{domain} target="_blank"><img class="ui avatar image " src={domainImg}>{domain}</a><a class="right floated"><i class="red heart disabled icon"></i>{score}</a><a class="right floated"><i class="comment orange disabled icon"></i>{comment}</a></div></div>';
+				cardMarkup = '<div class="ui card" "data-id={id}"><div class="image"><img src="{image}"></div><div class="content"><a class="header" href={url} target="_blank">{title}</a><div class="meta"><span class="date">{time}</span></div><div class="description">{description}</div></div><div class="extra content"><a href=http://{domain} target="_blank"><img class="ui avatar image " src={domainImg}>{domain}</a><div class="right floated"> <i class="red heart disabled icon"></i>{score}</div><a href="https://news.ycombinator.com/item?id={id}" class="right floated" target="_blank"><i class="comment orange disabled icon"></i>{comment}</a></div></div>';
         storyJSON.image = storyJSON.image|| 'app/placeholder.png';
 			storyJSON.time = storyJSON.time? new Date(storyJSON.time*1000).toDateString():0;
 			storyJSON.comment = storyJSON.descendants;
