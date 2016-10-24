@@ -19,7 +19,7 @@
 
 	$(window).scroll(function () {
 		if ($(window).scrollTop() === ($(document).height() - $(window).height())) {
-			var topLimit = (topStoryOffset + 20);
+			var topLimit = (topStoryOffset + 120);
 			for (; topStoryOffset < topLimit; topStoryOffset++) {
 				util.fetchStoryCard(idsArr[topStoryOffset]);
 			}
